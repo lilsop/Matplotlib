@@ -1,0 +1,51 @@
+import matplotlib.pyplot as plt
+
+# Open violent crimes file
+violentcrimesfile = open('Crimedata.txt')
+crimelist = violentcrimesfile.readlines()
+print(crimelist)
+
+# Make a list for the years
+yearslist = []
+n = 2000
+while (n <= 2020):
+    yearslist.append(n)
+    n = n + 1
+
+'''x = range(1,10)
+y = range(21,30)
+plt.plot(x,y)
+plt.show()'''
+
+for i in range(len(crimelist)):
+    crimelist[i] = int(crimelist[i])
+
+# Changing the color of the line
+color = input("Should the graph be RED or BLUE?")
+if (color == "RED"):
+    color = "rx"
+if (color == "BLUE"):
+    color = "bx"
+
+
+'''# Change figure size
+size = input("How big should the graph be (from size 1-5)?")
+plt.figure(figsize=(size, size))'''
+
+
+# Labelling axes
+fig, ax1 = plt.subplots()
+ax1.set_xlabel("Years")
+ax1.set_ylabel("Violent Crimes by 100k")
+
+# Plot data
+a = plt.plot(range(2000, 2020), crimelist, color)
+plt.axis([1996, 2020, 1000000, 1500000])
+plt.show()
+
+b = plt.plot(range(2000, 2020), crimelist, color)
+plt.axis([2009, 2020, 1125000, 1300000])
+plt.show()
+
+# Challenge: Change the ticks and add labels to axes
+# Complete
